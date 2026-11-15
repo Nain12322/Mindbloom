@@ -95,14 +95,14 @@ COLOR_MAP = {
 
 ITEMS_CATALOG = [
     {
-        "id": "strawberry",
+        "id": "red_strawberry",
         "mystery_name": "Summer Berry",
         "revealed_name": "Red Strawberry",
         "category": "Fruit",
         "color": "Red",
     },
     {
-        "id": "sunflower",
+        "id": "yellow_sunflower",
         "mystery_name": "Sun-Facing Flower",
         "revealed_name": "Yellow Sunflower",
         "category": "Flower",

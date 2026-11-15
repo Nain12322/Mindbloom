@@ -28,11 +28,35 @@ SFX = {
 }
 
 
+ALIASES = {
+    "strawberry": "red_strawberry",
+    "red_strawberry": "red_strawberry",
+    "sunflower": "yellow_sunflower",
+    "yellow_sunflower": "yellow_sunflower",
+    "orange": "orange_fruit",
+    "orange_fruit": "orange_fruit",
+    "lavender": "purple_lavender",
+    "purple_lavender": "purple_lavender",
+    "green_apple": "green_apple",
+    "apple": "green_apple",
+    "blue_blueberries": "blue_blueberries",
+    "blueberries": "blue_blueberries",
+    "pink_cherry_blossom": "pink_cherry_blossom",
+    "cherry_blossom": "pink_cherry_blossom",
+    "white_daisy": "white_daisy",
+    "daisy": "white_daisy",
+}
+
+
 def load_image(item_id):
-    if item_id in IMAGES:
-        data = base64.b64decode(IMAGES[item_id])
+    key = ALIASES.get(item_id, item_id)
+    if key in IMAGES:
+        data = base64.b64decode(IMAGES[key])
         bio = io.BytesIO(data)
-        return pygame.image.load(bio).convert_alpha()
+        surf = pygame.image.load(bio)
+        if pygame.display.get_surface():
+            return surf.convert_alpha()
+        return surf
     return None
 
 def load_sound(sfx_id):
